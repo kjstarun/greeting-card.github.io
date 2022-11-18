@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: auto;
+            padding: 4rem;
+            width: 75%;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            background-color: #000;
+            color: aliceblue;
+        }
+
+        input,
+        textarea,
+        button {
+            /* color: gray; */
+            background-color: gray;
+            border: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        #card-container {
+            margin: auto;
+            width: 92%;
+            max-height: 40%;
+            border: 1px solid grey;
+        }
+
+        .form-container {
+            margin: 2rem 7%;
+
+        }
+
+        .form-container .column {
+            padding: 1rem;
+        }
+
+        form,
+        input,
+        textarea,
+        select {
+            width: 100%;
+            margin: 1rem 0;
+
+        }
+
+        button:hover {
+            background-color: darkred;
+            color: white;
+            border: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Build Your Own Greeting Card</h1>
+    <div class="row form-container">
+        <div class="one-half column">
+            <form>
+                <label for="title">Card Title:</label>
+                <input type="text" id="title" name="title">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from">
+            </form>
+        </div>
+        <div class="one-half column">
+            <form>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="message"></textarea>
+                <button id="save-button">Save Card</button>
+            </form>
+        </div>
+    </div>
+    <div id="card-container" class="row">
+        <div class="one-third column text-container">
+            <h2 id="card-title">Happy Holidays</h2>
+            <p id="card-msg">Lorum Ipsum and a Happy New Year! We would like to
+                thank our entire community for their support this year. We enjoyed all
+                the challenged and achievements 2017 brought our way and we’re looking
+                forward to what 2018 will bring.<br><br>May your holidays be filled with
+                code and cocoa!</p>
+            <h3 id="card-from">Love Lighthouse Labs</h3>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
