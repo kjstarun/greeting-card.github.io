@@ -24,8 +24,8 @@ Version - 3 :
 - The user has the option to choose any of the save method from three (image, pdf, link).
 
 
-[Write here Text]<img width="430" alt="image" src="https://user-images.githubusercontent.com/103061882/202715817-ed3fddbc-324d-424e-93f9-588b79db0267.png">
+<img width="430" alt="image" src="https://user-images.githubusercontent.com/103061882/202715817-ed3fddbc-324d-424e-93f9-588b79db0267.png">
 
 
-[Write here Text]<img width="277" alt="image" src="https://user-images.githubusercontent.com/103061882/202716289-ad7ef02a-585d-4bd7-abc5-cc85ef79c30a.png">
+<img width="277" alt="image" src="https://user-images.githubusercontent.com/103061882/202716289-ad7ef02a-585d-4bd7-abc5-cc85ef79c30a.png">
 
