@@ -7,96 +7,235 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="./card.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             margin: auto;
-            padding: 4rem;
-            width: 75%;
+            width: 100%;
             font-family: 'Lato', sans-serif;
             font-size: 16px;
-            background-color: #000;
+            background-image: url("./pexels-felix-mittermeier-956999.jpg");
+            backdrop-filter: brightness(40%);
+            background-repeat: no-repeat;
+            background-size: cover;
             color: aliceblue;
+            background-color: rgba(39, 38, 38, 0.8);
+        }
+
+        .vp {
+            height: auto;
+            padding: 50px 0;
+            width: 75%;
+            margin: auto;
         }
 
         input,
         textarea,
         button {
             /* color: gray; */
-            background-color: gray;
+            background-color: rgba(42, 42, 42, 0.721);
             border: none;
+            /* outline: rgb(194, 49, 49); */
         }
 
         h1 {
             text-align: center;
-            font-size: 4rem;
+            font-size: 50px;
         }
 
         #card-container {
             margin: auto;
-            width: 92%;
+            width: 90%;
             max-height: 40%;
             border: 1px solid grey;
         }
 
         .form-container {
-            margin: 2rem 7%;
+            margin: 25px 40px;
 
         }
 
         .form-container .column {
-            padding: 1rem;
+            padding: 10px;
         }
 
-        form,
-        input,
+        .form1,
+        .form-container input,
         textarea,
         select {
-            width: 100%;
-            margin: 1rem 0;
+            max-width: 100%;
+            min-width: 100%;
+            margin: 15px 0;
 
+        }
+
+        input {
+            height: 25px;
+        }
+
+        button {
+            margin-left: 45%;
+            padding: 10px 30px;
+            font-size: 18px;
+            color: white;
         }
 
         button:hover {
             background-color: darkred;
+            /* color: white; */
+            /* border: white; */
+            opacity: 0.7;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        input,
+        textarea {
+            padding: 2px 10px;
             color: white;
-            border: white;
+        }
+
+        .radio form{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .radio form div{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 5px;
+        }
+
+        input[type="radio"]:hover {
+            cursor: pointer;
+        }
+
+        input[type="radio"]:disabled:hover {
+            cursor: not-allowed;
         }
     </style>
 
 </head>
 
 <body>
-    <h1>Build Your Own Greeting Card</h1>
-    <div class="row form-container">
-        <div class="one-half column">
+    <div class="vp">
+        <h1>Build Your Own Greeting Card</h1>
+        <div class="radio">
             <form>
-                <label for="title">Card Title:</label>
-                <input type="text" id="title" name="title">
-                <label for="from">From:</label>
-                <input type="text" id="from" name="from">
+                <div>
+                    <input type="radio" name="event" id="Birthday" checked>
+                    <label for="Birthday">Birthday</label>
+                </div>
+                <div>
+                    <input type="radio" name="event" id="Wedding" disabled>
+                    <label for="Wedding">Wedding</label>
+                </div>
+                <div>
+                    <input type="radio" name="event" id="Anniversary" disabled>
+                    <label for="Anniversary">Anniversary</label>
+                </div>
             </form>
         </div>
-        <div class="one-half column">
-            <form>
-                <label for="msg">Message:</label>
-                <textarea id="msg" name="message"></textarea>
-                <button id="save-button">Save Card</button>
-            </form>
+        <div class="row form-container">
+            <div class="column">
+                <form class="form1">
+                    <label for="title">Card Title:</label>
+                    <input type="text" id="title" name="title">
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="from">
+                </form>
+            </div>
+            <div class="column">
+                <form class="form1">
+                    <label for="msg">Message:</label>
+                    <textarea id="msg" name="message"></textarea>
+                    <button id="save-button">Save Card</button>
+                </form>
+            </div>
+        </div>
+        <div id="card-container" class="row">
+            <div class="text-container">
+                <h2 id="card-title">ABCDEF</h2>
+                <p id="card-msg">Lorum Ipsum and a Happy New Year! We would like to
+                    thank our entire community for their support this year. We enjoyed all
+                    the challenged and achievements 2017 brought our way and we're looking
+                    forward to what 2018 will bring.<br><br>May your holidays be filled with
+                    code and cocoa!</p>
+                <h3 id="card-from">Greetings</h3>
+            </div>
+            <div class="column">
+                <img id="card-image" src="./realistic-happy-birthday-black-golden_1361-3241.webp">
+                <div id="snow"></div>
+            </div>
         </div>
     </div>
-    <div id="card-container" class="row">
-        <div class="one-third column text-container">
-            <h2 id="card-title">ABCDEF</h2>
-            <p id="card-msg">Lorum Ipsum and a Happy New Year! We would like to
-                thank our entire community for their support this year. We enjoyed all
-                the challenged and achievements 2017 brought our way and we’re looking
-                forward to what 2018 will bring.<br><br>May your holidays be filled with
-                code and cocoa!</p>
-            <h3 id="card-from">Greetings</h3>
-        </div>
-    </div>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script>
+        let cardContainer = document.getElementById('card-container');
+        let cardImage = document.getElementById('card-image');
+        let cardTitle = document.getElementById('card-title');
+        let cardMsg = document.getElementById('card-msg');
+        let cardFrom = document.getElementById('card-from');
+
+        let formTitle = document.getElementById('title');
+        let formFrom = document.getElementById('from');
+        let formMsg = document.getElementById('msg');
+        let formImage = document.getElementById('image');
+
+        let saveButton = document.getElementById('save-button');
+
+        formTitle.addEventListener('keyup', function (event) {
+            cardTitle.innerText = event.target.value;
+        })
+
+        formFrom.addEventListener('keyup', function (event) {
+            cardFrom.innerText = event.target.value;
+        })
+
+        formMsg.addEventListener('keyup', function (event) {
+            cardMsg.innerText = event.target.value;
+        })
+
+        // formImage.addEventListener('change', function (event) {
+        //     cardImage.src = event.target.value;
+        // })
+
+        saveButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            html2canvas(cardContainer, {
+                onrendered: function (canvas) {
+                    let myImage = canvas.toDataURL("image/png");
+                    downloadURI("data:" + myImage, "HappyHolidays.png");
+                }
+            });
+        });
+
+        function downloadURI(uri, name) {
+            let link = document.createElement("a");
+            link.download = name;
+            link.href = uri;
+            link.click();
+        }
+    </script>
 </body>
 
 </html>
+
+<!-- 
+    - UI
+    - Filter
+    - Marketplace
+    - Onclick
+    - Shortcut to edit
+    - Tag options
+    - Timeframe
+ -->
