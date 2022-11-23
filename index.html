@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -102,13 +102,13 @@
             color: white;
         }
 
-        .radio form{
+        .radio form {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
         }
 
-        .radio form div{
+        .radio form div {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -122,6 +122,16 @@
         input[type="radio"]:disabled:hover {
             cursor: not-allowed;
         }
+
+        .custom {
+            /* background-color: aqua; */
+            display: flex;
+            /* max-width: 100%; */
+            width: 90%;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 25px 0px 60px 50px;
+        }
     </style>
 
 </head>
@@ -130,22 +140,22 @@
     <div class="vp">
         <h1>Build Your Own Greeting Card</h1>
         <div class="radio">
-            <form>
+            <form id="occassion">
                 <div>
-                    <input type="radio" name="event" id="Birthday" checked>
+                    <input type="radio" name="events" id="Birthday" checked>
                     <label for="Birthday">Birthday</label>
                 </div>
                 <div>
-                    <input type="radio" name="event" id="Wedding" disabled>
+                    <input type="radio" name="events" id="Wedding">
                     <label for="Wedding">Wedding</label>
                 </div>
                 <div>
-                    <input type="radio" name="event" id="Anniversary" disabled>
+                    <input type="radio" name="events" id="Anniversary">
                     <label for="Anniversary">Anniversary</label>
                 </div>
             </form>
         </div>
-        <div class="row form-container">
+        <div class="form-container">
             <div class="column">
                 <form class="form1">
                     <label for="title">Card Title:</label>
@@ -158,11 +168,15 @@
                 <form class="form1">
                     <label for="msg">Message:</label>
                     <textarea id="msg" name="message"></textarea>
-                    <button id="save-button">Save Card</button>
                 </form>
             </div>
         </div>
-        <div id="card-container" class="row">
+        <div class="custom">
+            <label for="card-text-color">Card Message Color</label>
+            <input type="color" name="card-color" id="card-text-color">
+            <button id="save-button">Save Card</button>
+        </div>
+        <div id="card-container">
             <div class="text-container">
                 <h2 id="card-title">ABCDEF</h2>
                 <p id="card-msg">Lorum Ipsum and a Happy New Year! We would like to
@@ -177,21 +191,30 @@
                 <div id="snow"></div>
             </div>
         </div>
+        <!-- <img src="./NoYclA.webp" alt=""> -->
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js" ,></script>
     <script>
         let cardContainer = document.getElementById('card-container');
         let cardImage = document.getElementById('card-image');
         let cardTitle = document.getElementById('card-title');
         let cardMsg = document.getElementById('card-msg');
         let cardFrom = document.getElementById('card-from');
+        let occassion = document.getElementById("occassion");
 
         let formTitle = document.getElementById('title');
         let formFrom = document.getElementById('from');
         let formMsg = document.getElementById('msg');
         let formImage = document.getElementById('image');
 
+        let fontColor = document.getElementById("card-text-color");
         let saveButton = document.getElementById('save-button');
+
+        let obj = {
+            Birthday: "./realistic-happy-birthday-black-golden_1361-3241.webp",
+            Wedding: "./pikrepo.jpg",
+            Anniversary: "./NoYclA.webp"
+        }
 
         formTitle.addEventListener('keyup', function (event) {
             cardTitle.innerText = event.target.value;
@@ -203,11 +226,26 @@
 
         formMsg.addEventListener('keyup', function (event) {
             cardMsg.innerText = event.target.value;
+            // cardMsg.color = "blue";
         })
 
-        // formImage.addEventListener('change', function (event) {
-        //     cardImage.src = event.target.value;
-        // })
+        occassion.addEventListener('change', function (event) {
+            // console.log(1)
+            let events = document.querySelectorAll('input[name="events"]');
+            for (let i of events) {
+                if (i.checked) {
+                    console.log(i.id);
+                    cardImage.src = obj[i.id];
+                }
+            }
+        });
+
+        fontColor.addEventListener("input", function(){
+            // console.log("color")
+            fontColor = document.getElementById("card-text-color");
+            // console.log(fontColor.value);
+            cardMsg.style.color = fontColor.value;
+        })
 
         saveButton.addEventListener('click', function (event) {
             event.preventDefault();
