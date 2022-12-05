@@ -1,6 +1,3 @@
-Title: Greeting Card
-[Live] https://kjstarun.github.io/greeting-card.github.io/
-
 Version - 1 :
 - The user can enter the Card title
 - The user can enter the From name
@@ -25,8 +22,68 @@ Version - 3 :
 - The user has the option to choose any of the save method from three (image, pdf, link).
 
 
-<img width="430" alt="image" src="https://user-images.githubusercontent.com/103061882/202715817-ed3fddbc-324d-424e-93f9-588b79db0267.png">
 
 
-<img width="277" alt="image" src="https://user-images.githubusercontent.com/103061882/202716289-ad7ef02a-585d-4bd7-abc5-cc85ef79c30a.png">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // function sum2(arr, target) {
+        //     const map = {};
+        //     for (let i = 0; i < arr.length; i++) {
+        //         const current = arr[i];
+        //         if (map.hasOwnProperty(current)) {
+        //             continue;
+        //         }
+        //         map[current] = i; //{1:0, 2:1, 3:2, 4:4}
+        //         const findReverseKey = current > 0 ? `-${current}` : current;
+        //         if (map.hasOwnProperty(findReverseKey)) {
+        //             // console.log(current);
+        //             return {
+        //                 [map[current]]: current,
+        //                 [map[findReverseKey]]: findReverseKey,
+        //             };
+        //         }
+
+        //     };
+        // }
+        // console.log("@TS way 2, ", sum2(arr, target));

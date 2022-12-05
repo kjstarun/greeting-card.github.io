@@ -174,6 +174,7 @@
         <div class="custom">
             <label for="card-text-color">Card Message Color</label>
             <input type="color" name="card-color" id="card-text-color">
+            <input type="file" accept="image/*" name="image" id="file" onchange="loadImage(event)" />
             <button id="save-button">Save Card</button>
         </div>
         <div id="card-container">
@@ -191,7 +192,6 @@
                 <div id="snow"></div>
             </div>
         </div>
-        <!-- <img src="./NoYclA.webp" alt=""> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js" ,></script>
     <script>
@@ -240,12 +240,16 @@
             }
         });
 
-        fontColor.addEventListener("input", function(){
+        fontColor.addEventListener("input", function () {
             // console.log("color")
             fontColor = document.getElementById("card-text-color");
             // console.log(fontColor.value);
             cardMsg.style.color = fontColor.value;
-        })
+        });
+
+        const loadImage = function (event) {
+            cardImage.src = URL.createObjectURL(event.target.files[0]);
+        };
 
         saveButton.addEventListener('click', function (event) {
             event.preventDefault();
